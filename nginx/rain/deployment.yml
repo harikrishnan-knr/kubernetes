@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rain-app
+  labels:
+    app: rain-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rain-app
+  template:
+    metadata:
+      labels:
+        app: rain-app
+    spec:
+      containers:
+      - name: rain-web
+        image: harikrishnanknr/rain:v1
+        ports:
+        - containerPort: 80
